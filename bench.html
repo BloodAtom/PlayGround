@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><body style="margin:0;background:#000"><canvas id="c" style="width:100vw;height:100vh"></canvas>
+<script>
+const c=document.getElementById('c');c.width=innerWidth;c.height=innerHeight;const g=c.getContext('2d');
+let mode='clear';window.setMode=m=>mode=m;
+function loop(){ if(mode==='clear'){g.clearRect(0,0,c.width,c.height);} else if(mode==='fill'){g.fillStyle='#123';g.fillRect(0,0,c.width,c.height);} else if(mode==='arc'){g.clearRect(0,0,c.width,c.height);g.save();g.translate(c.width/2,c.height/2);g.fillStyle='#e9b949';for(let i=0;i<20;i++){g.beginPath();g.arc(Math.cos(i)*100,Math.sin(i)*100,15,0,6.28);g.fill();}g.restore();} requestAnimationFrame(loop);}loop();
+</script></body></html>
